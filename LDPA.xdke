@@ -1,0 +1,44 @@
+{
+  "project": {
+    "projectSettingsVersion": "3.0.0",
+    "currentBuildConfiguration": "Android",
+    "projectFiles": {},
+    "projectDirectories": {}
+  },
+  "editorTab": {
+    "currentEditorMode": 0
+  },
+  "build-tab": {
+    "selectedTargets": [
+      "CORDOVA_ANDROID"
+    ]
+  },
+  "simulator": {
+    "cordova-simulate": {
+      "tinyhippos-geosettings": {
+        "id": "tinyhippos-geosettings",
+        "key": "geosettings",
+        "value": "{\"position\":{\"latitude\":38.571277531931415,\"longitude\":-121.48700394566222,\"altitude\":100,\"accuracy\":150,\"altitudeAccuracy\":80,\"heading\":0,\"speed\":0,\"timeStamp\":\"new Date(1499412684335)\"},\"delay\":\"0\",\"timeout\":false}",
+        "prefix": "tinyhippos-"
+      },
+      "tinyhippos-saved-sims": {
+        "id": "tinyhippos-saved-sims",
+        "key": "saved-sims",
+        "value": "[{\"service\":\"BackgroundMode\",\"action\":\"enable\",\"args\":[],\"value\":\"\",\"success\":true}]",
+        "prefix": "tinyhippos-"
+      },
+      "tinyhippos-network-type": {
+        "id": "tinyhippos-network-type",
+        "key": "network-type",
+        "value": "none",
+        "prefix": "tinyhippos-"
+      },
+      "tinyhippos-geo-map-zoom-key": {
+        "id": "tinyhippos-geo-map-zoom-key",
+        "key": "geo-map-zoom-key",
+        "value": 9,
+        "prefix": "tinyhippos-"
+      }
+    }
+  }
+}
