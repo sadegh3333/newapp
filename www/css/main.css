@@ -1,0 +1,574 @@
+/* latin-ext */
+@font-face{
+  font-family: 'lato-light';
+  font-style: normal;
+  src:url('../fonts/Lato-Light.ttf')format('truetype');;
+}
+
+@-ms-viewport {
+  width: 100vw;
+  zoom: 100%;
+}
+
+@viewport {
+  width: 100vw;
+  zoom: 100%;
+}
+
+@-ms-viewport {
+  user-zoom: fixed;
+}
+
+@viewport {
+  user-zoom: fixed;
+}
+html , body {
+  overflow-x: hidden !important;
+  margin: 0px;
+  padding: 0px;
+  font-family: lato-light;
+  overflow: overlay;
+  min-height: 100%;
+  min-width: 100%;
+  transition: 0.6s all;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+
+
+/* Main Color for JobType */
+.jobtype-AAA {
+  background-color: #607D8B !important;
+}
+.jobtype-AAD {
+  background-color: #009688 !important;
+}
+.jobtype-AAT {
+  background-color: #E91E63 !important;
+}
+.jobtype-COM {
+  background-color: #00BCD4 !important;
+}
+.jobtype-SER {
+  background-color: #9C27B0 !important;
+}
+/* End JobType Color */
+
+/* Begin Home-Page */
+.home-page .welcome {
+  font-size: 26px;
+  margin: 0px auto;
+  text-align: center;
+  padding: 200px 0px 0px;
+}
+.home-page .goto-schedule {
+  width: 100%;
+  text-align: center;
+}
+.home-page .goto-schedule a {
+  font-size: 16px;
+  border: 1px #ddd solid;
+  padding: 1px 10px;
+  border-bottom: 0;
+  border-top: 0;
+  color: #607D8B;
+  font-weight: bold;
+}
+.home-page .new_version {
+  width: 100%;
+  margin-top: 50px;
+  text-align: center;
+  display: none;
+}
+.home-page .goto-app {
+  text-align: center;
+  border-left: 1px rgba(0, 0, 0, 0.09) solid;
+  border-right: 1px rgba(0, 0, 0, 0.09) solid;
+  width: 23%;
+  margin: 30px auto 0px;
+  padding: 0px 0px 0px;
+  font-size: 16px;
+  color: #607D8B;
+  font-weight: bold;
+}
+.home-page .sync_with_server {
+  display: none;
+}
+
+.home-page .sync_with_server a {
+  display: block;
+  width: 100%;
+  text-align: center;
+  margin: 20px 0px;
+  font-size: 16px;
+  border: 1px #ddd solid;
+  padding: 20px 0px;
+  background-color: rgba(0,0,0,0.07);
+}
+/* End home-Page */
+
+.footer-welcome {
+  position: relative;
+  bottom: 20px;
+  width: 100%;
+  text-align: center;
+  font-size: 12px;
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+
+.message {
+  width: 100%;
+  text-align: center;
+  border: 1px rgba(0, 0, 0, 0.08) solid;
+  padding: 20px 0px;
+  background-color: rgba(0, 0, 0, 0.04);
+  display: none;
+}
+.show-loading {
+  display: none;
+  width: 100%;
+  text-align: center;
+}
+
+
+
+/* Begin Profile Page */
+profile {
+  margin: 0px;
+  padding: 0px;
+  width: 100%;
+  min-height: 100%;
+}
+profile .profile-header {
+  height: 150px;
+  width: 100%;
+  background-color: rgba(0, 142, 212, 0.64);
+  background-image: url(img/bg.jpg);
+  background-position: 80% 40%;
+  background-size: 150%;
+}
+profile .profile-user-picture {
+  height: 110px;
+  width: 110px;
+  position: absolute;
+  top: 75px;
+  left: 33px;
+  border: 1px #ddd solid;
+  box-shadow: 0px 0px 5px rgba(255, 255, 255, 0.64);
+}
+profile .profile-main {
+  position: relative;
+  top: 90px;
+  padding: 0px 33px;
+  font-size: 16px;
+  font-family: sans-serif;
+  font-weight: normal;
+}
+profile .profile-main-name {
+  padding-top: 0px;
+}
+profile .profile-user-id {
+  padding-top: 15px;
+}
+
+profile .profile-main-role {
+  padding-top: 15px;
+}
+profile .profile-main-phone {
+  padding-top: 15px;
+}
+/* End Profile Page */
+
+.log-out {
+  position: absolute;
+  top: 10px;
+  right: 0px;
+  background-color: rgba(255, 255, 255, 0.33);
+  padding: 5px 10px;
+  border-radius: 5px 0px 0px 5px;
+}
+.logout {
+  font-size: 18px;
+}
+.back-button {
+  position: absolute;
+  top: 12px;
+  left: 0px;
+  background-color: rgba(255, 255, 255, 0.33);
+  padding: 5px 10px;
+  border-radius: 0px 5px 5px 0px;
+  font-size: 18px;
+}
+
+.doschedule-job {
+  background-color: red !important;
+}
+
+
+
+job-schedule {}
+  job-schedule  .job-schedule-title{
+    padding: 30px;
+    font-size: 20px;
+    font-family: sans-serif;
+    background-color: #00BCD4;
+    box-shadow: 0px 0px 20px #607D8B;
+    text-shadow: -4px 6px 13px #000;
+    font-weight: bold;
+  }
+  job-schedule .job-schedule-list{}
+    job-schedule .job-schedule-list ul {
+      margin: 0px;
+      padding: 0px;
+      list-style: none;
+    }
+    job-schedule .job-schedule-list ul li{
+      background-color: #9E9E9E;
+      padding: 5px;
+      margin: 20px 20px;
+      color: white;
+      font-weight: bold;
+      font-size: 16px;
+      border-radius: 5px;
+    }
+    job-schedule .job-schedule-list ul li .id-schedule {
+      padding: 5px 10px;
+      width: 40%;
+      display: inline-block;
+    }
+    job-schedule .job-schedule-list ul li .vesselname-schedule {
+      padding: 5px 10px;
+      display: inline-block;
+      width: 48%;
+    }
+    job-schedule .job-schedule-list ul li .OrderDateTime-schedule {
+      display: inline-block;
+      width: 52%;
+      text-align: right;
+    }
+    job-schedule .job-schedule-list ul li .type-schedule {
+      display: inline-block;
+      width: 44%;
+      text-align: right;
+    }
+
+    header {
+      height: 55px;
+      background-color: #607D8B;
+    }
+    .title-page {
+      font-size: 16px;
+      color: white;
+      padding: 20px 0px 0px;
+      font-weight: bold;
+      margin: 0px auto;
+      width: 100%;
+      text-align: center;
+    }
+    .home-button {
+      position: absolute;
+      top: 12px;
+      right: 0px;
+      background-color: rgba(255, 255, 255, 0.33);
+      padding: 5px 10px;
+      border-radius: 5px 0px 0px 5px;
+      font-size: 18px;
+    }
+
+    message {
+      width: 100%;
+      text-align: center;
+      display: block;
+      position: fixed;
+      bottom: 0px;
+      padding: 20px 0px;
+      background-color: rgb(96, 125, 139);
+      color: white;
+      font-weight: bold;
+      z-index: 1001;
+      display: none;
+    }
+    message-noty {
+      width: 100%;
+      display: none;
+      position: fixed;
+      bottom: 0px;
+      z-index: 15000;
+      background-color: #009688;
+      padding: 20px 0px;
+      text-align: center;
+      font-weight: normal;
+      color: white;
+
+    }
+
+
+
+
+
+
+
+    /* Begin Job-Schedule-do */
+    job-schedule {}
+      job-schedule  .job-schedule-title{
+        padding: 30px;
+        font-size: 20px;
+        font-family: sans-serif;
+        background-color: #00BCD4;
+        box-shadow: 0px 0px 20px #607D8B;
+        text-shadow: -4px 6px 13px #000;
+        font-weight: bold;
+      }
+      job-schedule .job-schedule-list{}
+        job-schedule .job-schedule-list ul {
+          margin: 0px;
+          padding: 0px;
+          list-style: none;
+        }
+        job-schedule .job-schedule-list ul li{
+          background-color: #9E9E9E;
+          padding: 10px 10px;
+          margin: 10px 0px;
+          color: white;
+          font-weight: bold;
+          font-size: 16px;
+          border-radius: 0px;
+          position: relative;
+        }
+        job-schedule .job-schedule-list ul li div {
+          padding: 10px 0px;
+        }
+        job-schedule .job-schedule-list ul li .id-schedule {
+          padding: 0px;
+          width: 49%;
+          display: inline-block;
+        }
+        job-schedule .job-schedule-list ul li .id-joborder {
+          padding: 0px;
+          width: 49%;
+          display: inline-block;
+          text-align: right;
+        }
+        job-schedule .job-schedule-list ul li .vesselname-schedule {
+          padding: 0px;
+          display: inline-block;
+          width: 48%;
+        }
+        job-schedule .job-schedule-list ul li .OrderDateTime-schedule {
+          display: inline-block;
+          width: 100%;
+          text-align: left;
+          border-top: 1px rgba(255, 255, 255, 0.27) solid;
+        }
+        job-schedule .job-schedule-list ul li .type-schedule {
+          display: inline-block;
+          width: 50%;
+          text-align: right;
+        }
+
+
+        .do lightbox-edit {
+          display: none;
+          position: fixed;
+          top: 20%;
+          background-color: white;
+          padding: 7px 0px 20px;
+          width: 90%;
+          left: 5%;
+          text-align: center;
+          border: 1px rgba(0, 0, 0, 0.15) solid;
+          box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.12);
+          border-radius: 5px;
+        }
+        .do lightbox-edit .close {
+          position: absolute;
+          right: 6%;
+          border: 1px #FF5722 solid;
+          width: 33px;
+          text-align: center;
+          border-radius: 5%;
+          height: 20px;
+          padding: 4px 0px;
+          top: 5%;
+          background-color: #FF5722;
+          color: white;
+          font-size: 14px;
+          font-weight: bold;
+          box-shadow: 0px 0px 3px #FF5722;
+          cursor: pointer;
+        }
+        .do lightbox-edit label {
+          text-align: left;
+          display: block;
+          padding: 10px 20px 0;
+          font-size: 16px;
+          font-weight: bold;
+        }
+        .do lightbox-edit .title {
+          padding: 10px 19px 20px;
+          text-align: left;
+          border-bottom: 1px rgba(0, 0, 0, 0.05) solid;
+          font-size: 16px;
+          font-weight: bold;
+        }
+        .do lightbox-edit input {
+          padding: 11px 10px;
+          border: 1px #ddd solid;
+          width: 82%;
+          margin: 10px 0px;
+        }
+        .do lightbox-edit .submit-box {
+          text-align: left;
+          padding: 0px 20px;
+          border-top: 1px rgba(0, 0, 0, 0.1) solid;
+        }
+        .do lightbox-edit .submit {
+          border: 1px #009688 solid;
+          background-color: #009688;
+          padding: 10px 10px;
+          margin: 15px 0px 0px;
+          color: white;
+          font-size: 14px;
+          font-weight: bold;
+          box-shadow: 0px 0px 4px #009688;
+        }
+
+        .edit-btn {
+          background-color: #03A9F4;
+          border: 1px #ddd solid;
+          padding: 5px 20px;
+          border-radius: 5px;
+          color: white;
+          font-size: 15px;
+          font-weight: bold;
+          box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.07);
+          display: none;
+        }
+
+        .btnbegin {
+          border: 1px #009688 solid;
+          padding: 2px 2px;
+          color: white;
+          background-color: #009688;
+          /* box-shadow: 0px 0px 2px rgba(0, 150, 136, 0.56); */
+          font-weight: bold;
+          border-radius: 0px;
+          position: absolute;
+          right: 0px;
+          top: 0px;
+          height: 100%;
+          width: 33%;
+          font-size: 24px;
+          text-shadow: 0px 0px 4px rgba(255, 255, 255, 0.82);
+        }
+
+        .timelimit {
+          position: fixed;
+          bottom: 0px;
+          width: 100%;
+          background-color: rgba(158, 158, 158, 0.97);
+          padding: 20px 0px;
+          color: white;
+          font-weight: bold;
+          z-index: 15070;
+          text-align: center;
+        }
+
+        .todo_list {
+          width: 100%;
+          padding: 20px 0px;
+          border: 1px #ddd solid;
+          font-size: 16px;
+          font-weight: bold;
+        }
+        .todo_list span:nth-child(1) {
+          display: inline-block;
+          width: 49.0%;
+          padding-left: 0px;
+          height: 100%;
+          text-align: center;
+          border-right: 1px rgba(0, 0, 0, 0.11) solid;
+        }
+        .todo_list span:nth-child(2) {
+          display: inline-block;
+          width: 49.5%;
+          padding: 0;
+          height: 100%;
+          text-align: center;
+        }
+
+        .item_todo {
+          width: 100%;
+          border: 1px #ddd solid;
+          position: relative;
+        }
+        .item_todo span:nth-child(1) {
+          width: 60%;
+          display: inline-block;
+          padding: 20px 0px 10px 10px;
+          font-size: 16px;
+        }
+        .item_todo span:nth-child(2) {
+          width: 30%;
+          display: inline-block;
+          padding: 0px 20px 10px 0px;
+          font-size: 16px;
+          text-align: right;
+        }
+
+        .job_done {
+          background-color: rgba(128, 128, 128, 0.22);
+          border: 1px rgba(0, 0, 0, 0.53) solid;
+          box-shadow: 0px 0px 10px rgba(43, 43, 43, 0.32) inset;
+          transition: 1s all;
+        }
+
+        .next_job {
+          /*background-color: #009688;*/
+          /* box-shadow: 0px 0px 30px rgba(255, 255, 255, 0.49) inset; */
+          /*border: 1px rgba(255, 255, 255, 0.33) solid;*/
+          /*color: white;*/
+        }
+
+        .additional {
+          padding: 0px 10px 10px;
+          margin: 0px 0px 0px 10px;
+        }
+        /* End Job-Schdedule-do */
+
+
+
+
+
+
+
+
+        info-vessel {
+          display: block;
+          padding: 10px;
+          color: white;
+          background-color: rgb(96, 125, 139);
+          font-weight: bold;
+        }
+        info-vessel > div {
+          display: inline-block;
+          width: 48%;
+          padding: 7px 0px;
+        }
+        info-vessel div:nth-child(1) {
+
+        }
+        info-vessel div:nth-child(2) {
+          text-align: right;
+        }
+        info-vessel div:nth-child(3) {
+
+        }
+        info-vessel div:nth-child(4) {
+          text-align: right;
+        }

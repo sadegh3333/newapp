@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title> Doing </title>
+  <meta http-equiv="Content-type" content="text/html; charset=utf-8">
+
+  <!-- see http://webdesign.tutsplus.com/tutorials/htmlcss-tutorials/quick-tip-dont-forget-the-viewport-meta-tag -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
+  <link rel="stylesheet" href="css/font-awesome.min.css">
+  <link rel="stylesheet" href="css/main.css">
+
+  <script src="cordova.js"></script>
+  <!-- phantom library, needed for Cordova api calls, added during build -->
+  <script src="js/app.js"></script>
+  <!-- recommended location of your JavaScript code relative to other JS files -->
+  <script src="xdk/init-dev.js"></script>
+  <!-- normalizes device and document ready events, see README for details -->
+
+  <!-- Load All js file  -->
+  <script type="text/javascript" src="js/jquery-3.1.1.min.js"></script>
+  <script type="text/javascript" src="js/core.js"></script>
+  <script type="text/javascript" src="js/db.js"></script>
+
+</head>
+
+<body onload="LDPA.core()" class="do">
+
+  <header>
+    <a href="#" class="back-button"><i class="fa fa-angle-left" aria-hidden="true"></i> Back</a>
+    <div class="title-page">
+      Doing
+    </div>
+    <a href="index.html" class="home-button"><i class="fa fa-home" aria-hidden="true"></i> Home</a>
+  </header>
+
+  <job-schedule>
+    <info-vessel>
+      <div id="geolocation" style="display:none;"></div>
+      <div class="here_location" style="display:none;"></div>
+
+
+      <div>
+        <i class="fa fa-key" aria-hidden="true"></i> JS_ID: <span class="JobscheduleID">JobscheduleID Goes Here</span>
+      </div>
+      <div>
+        <i class="fa fa-key" aria-hidden="true"></i> JO_ID: <span class="JobOrderID">JoborderID Goes Here</span>
+      </div>
+      <div>
+        <i class="fa fa-ship" aria-hidden="true"></i> <span class="VesselName">VesselName Goes Here</span>
+      </div>
+      <div style="text-align: right;">
+        <i class="fa fa-check" aria-hidden="true"></i> JobType: <span class="JobType">JobType Goes Here</span>
+      </div>
+
+
+    </info-vessel>
+    <div class="job-schedule-list">
+      <div class="todo_list">
+        <span> Work </span>
+        <span> Status </span>
+      </div>
+      <!-- All JobSchedule Goes here... -->
+    </div>
+  </job-schedule>
+  <div class="" id="newone"></div>
+  <div class="footer-welcome" style="position:relative;margin-top: 50px;">
+    Version.<span class="version"></span>.<span class="ChannelVersion"></span> <i class="fa fa-copyright" aria-hidden="true"></i>  Copyright 2017
+  </div>
+
+
+  <!-- This is Lightbox for when user want to Edit -->
+  <lightbox-edit class="lightbox-edit" attr-id="">
+    <div class="title">
+      <span><i class="fa fa-pencil" aria-hidden="true"></i> Edit (<span class="ActivityID"> 834 </span>)</span>
+      <span class="close"><i class="fa fa-times" aria-hidden="true"></i></span>
+    </div>
+
+    <div class="">
+      <label for="datetime">DateTime:</label>
+      <input class="inputdatetime" type="datetime-local" name="datetime" value="" placeholder="datetime">
+    </div>
+    <div class="">
+      <label for="AdditionalInput">AdditionalInput:</label>
+      <input class="inputAdditionalInput" type="text" name="AdditionalInput" value="" placeholder="AdditionalInput">
+    </div>
+    <div class="submit-box">
+      <button type="button" name="button" class="submit"><i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+        Submit</button>
+
+      </div>
+    </lightbox-edit>
+
+
+    <script type="text/javascript">
+
+    // Show list todo_list
+    DB.show_do_list();
+
+
+
+
+    document.addEventListener("deviceready", getLocationFromGPS, false);
+
+    function getLocationFromGPS() {
+      navigator.geolocation.getCurrentPosition(onSuccess, onError);
+    }
+
+    function onSuccess(position) {
+      var element = document.getElementById('geolocation');
+      element.innerHTML = 'hello babe i have NO error';
+
+      // '35.6998985,51.3419222'
+      var where = position.coords.latitude+','+position.coords.longitude;
+      localStorage.setItem('location',where);
+      $('.here_location').html(where);
+    }
+
+    function onError(error) {
+      $('.here_location').html(error);
+    }
+
+
+setTimeout(function(){
+  $('.here_location').html(localStorage.getItem('location'));
+},5000);
+
+
+
+
+    </script>
+
+  </body>
+
+  </html>

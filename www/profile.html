@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Profile</title>
+  <meta http-equiv="Content-type" content="text/html; charset=utf-8">
+
+  <!-- see http://webdesign.tutsplus.com/tutorials/htmlcss-tutorials/quick-tip-dont-forget-the-viewport-meta-tag -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
+  <script src="cordova.js"></script>
+  <!-- phantom library, needed for Cordova api calls, added during build -->
+  <script src="js/app.js"></script>
+  <!-- recommended location of your JavaScript code relative to other JS files -->
+  <script src="xdk/init-dev.js"></script>
+  <!-- normalizes device and document ready events, see README for details -->
+  <link rel="stylesheet" href="css/font-awesome.min.css">
+  <link rel="stylesheet" href="css/main.css">
+
+
+  <style type="text/css">
+  body {
+    overflow: initial !important;
+  }
+  </style>
+
+  <!-- Load All js file  -->
+  <script type="text/javascript" src="js/jquery-3.1.1.min.js"></script>
+  <script defer="defer" type="text/javascript" src="js/core.js"></script>
+  <script defer="defer" type="text/javascript" src="js/db.js"></script>
+</head>
+
+<body onload="LDPA.core()">
+
+
+  <profile>
+    <div class="profile-header">
+      <img src="http://www.w3schools.com/w3css/img_avatar3.png" class="profile-user-picture" alt="profile-user-picture" />
+    </div>
+
+    <a href="#" onClick="back_button()" class="back-button"><i class="fa fa-angle-left" aria-hidden="true"></i> Back</a>
+
+    <div class="log-out">
+      <a href="#" class="logout"><i class="fa fa-sign-out" aria-hidden="true"></i> Logout</a>
+    </div>
+
+    <div class="profile-main">
+      <div class="profile-main-name">
+        <strong>Name:</strong> <span class="name"> Lorenz David </span>
+      </div>
+      <div class="profile-user-id">
+        <strong>UserID:</strong> <span class="user-id">33</span>
+      </div>
+      <div class="profile-main-role">
+        <strong>Role:</strong> <span class="role"> Manager </span>
+      </div>
+
+    </div>
+  </profile>
+
+  <div class="footer-welcome">
+    Version.<span class="version"></span>.<span class="ChannelVersion"></span> <i class="fa fa-copyright" aria-hidden="true"></i>  Copyright 2017 
+  </div>
+
+
+  <script defer="defer" type="text/javascript">
+  $(document).ready(function() {
+    $('.name').html(localStorage.getItem('display_name'));
+    $('.role').html(localStorage.getItem('role'));
+    $('.user-id').html(localStorage.getItem('id'));
+
+
+
+    // Added some property to Footer just for Home page
+    $('.footer-welcome').css('position', 'absolute');
+    $('.footer-welcome').css('margin-top','0px');
+    $('.footer-welcome').css('margin-bottom','0px');
+  });
+  </script>
+
+
+
+
+
+</body>
+
+</html>

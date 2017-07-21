@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<!--
+* Please see the included README.md file for license terms and conditions.
+-->
+
+<head>
+  <title>Login</title>
+  <meta http-equiv="Content-type" content="text/html; charset=utf-8">
+  <link rel="stylesheet" href="css/font-awesome.min.css">
+  <!-- see http://webdesign.tutsplus.com/tutorials/htmlcss-tutorials/quick-tip-dont-forget-the-viewport-meta-tag -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
+  <script src="cordova.js"></script>
+  <!-- phantom library, needed for Cordova api calls, added during build -->
+  <script src="js/app.js"></script>
+  <!-- recommended location of your JavaScript code relative to other JS files -->
+  <script src="xdk/init-dev.js"></script>
+  <!-- normalizes device and document ready events, see README for details -->
+  <link rel="stylesheet" href="css/main.css">
+</head>
+<style>
+body {
+  overflow: hidden;
+}
+.login-header {
+  font-size: 16px;
+  background-color: rgba(0, 0, 0, 0.03);
+  padding: 20px 30px 15px;
+  color: #607D8B;
+  font-weight: bold;
+}
+.back-to-home {
+  display: inline-block;
+  /*padding: 8px 16px;
+  background-color: rgb(96, 125, 139);
+  color: white;
+  border-radius: 0px 0px 0px 11px;*/
+}
+.login-main{
+  width: 100%;
+  padding: 100px 0px 0px;
+  text-align: left;
+}
+.login-main form > div{
+  padding: 0px 25px 0px 30px;
+}
+input[type="text"] , input[type="password"] {
+  border: none;
+  box-shadow: 0px 0px 7px #ddd;
+  padding: 10px;
+  width: 90%;
+  margin: 10px 0px;
+}
+input[type="submit"] {
+  border: 1px #ddd solid;
+  background-color: rgba(76, 175, 80, 0.91);
+  padding: 9px 20px;
+  margin: 13px 0;
+  color: white;
+  font-weight: bold;
+  font-size: 16px;
+  border-radius: 5px;
+}
+
+</style>
+<body onload="LDPA.core()">
+
+
+  <div class="login-header">
+    <a class="back-to-home" href="index.html">
+      <i class="fa fa-angle-left" aria-hidden="true"></i> Back
+    </a>
+  </div>
+
+
+  <div class="login-main">
+
+    <form class="login" action="#" method="post">
+      <div class="login-username">
+        <label for="">Username:</label>
+        <input  tabindex="1" type="text" class="username-input" name="username" value="">
+      </div>
+      <div class="login-password">
+        <label for="">Password:</label>
+        <input tabindex="2" type="password" class="password-input" name="password" value="">
+      </div>
+      <div class="login-submit">
+        <input type="submit" name="" value="Login">
+      </div>
+    </div>
+  </form>
+  <div class="show-loading">
+    <i class="fa fa-spinner fa-spin" style="font-size:24px"></i>
+  </div>
+  <div class="message"></div>
+
+  <div class="footer-welcome">
+    Version.<span class="version"></span>.<span class="ChannelVersion"></span> <i class="fa fa-copyright" aria-hidden="true"></i>  Copyright 2017 
+  </div>
+
+
+  <script src="js/jquery-3.1.1.min.js"></script>
+  <script src="js/core.js"></script>
+  <script type="text/javascript" src="js/db.js">
+
+  </script>
+
+</body>
+
+</html>

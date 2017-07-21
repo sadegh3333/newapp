@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Job Schedule</title>
+  <meta http-equiv="Content-type" content="text/html; charset=utf-8">
+
+  <!-- see http://webdesign.tutsplus.com/tutorials/htmlcss-tutorials/quick-tip-dont-forget-the-viewport-meta-tag -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
+  <link rel="stylesheet" href="css/font-awesome.min.css">
+  <link rel="stylesheet" href="css/main.css">
+
+  <script src="cordova.js"></script>
+  <!-- phantom library, needed for Cordova api calls, added during build -->
+  <script src="js/app.js"></script>
+  <!-- recommended location of your JavaScript code relative to other JS files -->
+  <script src="xdk/init-dev.js"></script>
+  <!-- normalizes device and document ready events, see README for details -->
+
+  <!-- Load All js file  -->
+  <script type="text/javascript" src="js/jquery-3.1.1.min.js"></script>
+  <script type="text/javascript" src="js/core.js"></script>
+  <script type="text/javascript" src="js/db.js"></script>
+
+</head>
+<body onload="LDPA.core()">
+
+  <header>
+    <a href="#" onClick="back_button()" class="back-button"><i class="fa fa-angle-left" aria-hidden="true"></i> Back</a>
+    <div class="title-page">
+      Job Schedule
+    </div>
+    <a href="index.html" class="home-button"><i class="fa fa-home" aria-hidden="true"></i> Home</a>
+  </header>
+
+  <div class="check_online"></div>
+
+  <job-schedule>
+    <div class="job-schedule-list">
+      <ul class="job-schedule-list-show">
+        <span class="job-schedule-list-show-here"></span>
+        <!-- All JobSchedule Goes here... -->
+      </ul>
+    </div>
+  </job-schedule>
+
+  <message> New Data is Available! </message>
+  <message-noty> New Data assigned ! </message-noty>
+  <div class="footer-welcome">
+    Version.<span class="version"></span>.<span class="ChannelVersion"></span> <i class="fa fa-copyright" aria-hidden="true"></i>  Copyright 2017
+  </div>
+
+
+
+  <script type="text/javascript" >
+
+
+  // Prepare to show list
+  // Loaded from localStorage
+  DB.get_job_schedule_from_server();
+
+  // show jobschedule list
+  DB.list_schedule();
+
+
+  // Get DATA for any schedule again an again from server
+  document.addEventListener('app.Ready',DB.get_schedule_task(), false);
+
+  // show new data is available
+  $('message').click(function() {
+
+    // Ask question
+    // var update = confirm("Do you want to update list ?");
+    var update = true;
+    if (update == true) {
+
+      // Set New Data
+      localStorage.setItem('jobschedule_local',localStorage.getItem('jobschedule_new'));
+      localStorage.setItem('updated-schdeule-list',1);
+
+
+      DB.get_schedule_task();
+
+      // Reload Page and show new date
+      window.location.replace('job-schedule.html');
+
+    } else {
+      return;
+    }
+  });
+
+
+  //  show message to user the list is updated
+  noty_message_update_list = localStorage.getItem('updated-schdeule-list');
+  if(noty_message_update_list == 1){
+    // After Update datalist hide the button
+    $('message').hide('slow');
+
+    $(function() {
+      $('message-noty').show('slow');
+      setTimeout(function() {
+        $("message-noty").hide('blind');
+      }, 3000);
+    });
+    localStorage.setItem('updated-schdeule-list',0);
+  }
+
+  </script>
+
+
+
+</body>
+
+</html>

@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Welcome To LDPA</title>
+  <meta http-equiv="Content-type" content="text/html; charset=utf-8">
+  <link rel="stylesheet" href="css/font-awesome.min.css">
+  <!-- see http://webdesign.tutsplus.com/tutorials/htmlcss-tutorials/quick-tip-dont-forget-the-viewport-meta-tag -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
+  <script src="cordova.js"></script>
+  <!-- phantom library, needed for Cordova api calls, added during build -->
+  <script src="js/app.js"></script>
+  <!-- recommended location of your JavaScript code relative to other JS files -->
+  <script src="xdk/init-dev.js"></script>
+  <!-- normalizes device and document ready events, see README for details -->
+  <link rel="stylesheet" href="css/main.css">
+
+
+
+</head>
+
+<body class="home-page" onload="LDPA.core()">
+  <div class="welcome">
+    Welcome To LDPA
+  </div>
+  <div class="goto-app">
+    <a class="goto-login" href="#">
+      <i class="fa fa-sign-in" aria-hidden="true"></i>  Login
+    </a>
+  </div>
+  <div class="goto-schedule">
+    <a href="job-schedule.html"><i class="fa fa-braille" aria-hidden="true"></i> Job Schedule</a>
+    <a class="goto-profile" href=""><i class="fa fa-user" aria-hidden="true"></i> Profile</a>
+  </div>
+  <div class="new_version">
+    <a id="new_version" href="">New Version is Available ! </a>
+  </div>
+
+  <div class="sync_with_server">
+    <a id="sync_with_server" href="#">New Data Recorded Sync With Server</a>
+  </div>
+  <div class="show-loading">
+    <i class="fa fa-spinner fa-spin" style="font-size:24px"></i>
+  </div>
+  <message-noty> Sync Completed ! </message-noty>
+
+  <div class="footer-welcome">
+    Version.<span class="version"></span>.<span class="ChannelVersion"></span> <i class="fa fa-copyright" aria-hidden="true"></i>  Copyright 2017
+  </div>
+
+
+  <!-- Load All js file  -->
+  <script type="text/javascript" src="js/jquery-3.1.1.min.js"></script>
+  <script type="text/javascript" src="js/core.js"></script>
+  <script type="text/javascript" src="js/db.js"></script>
+
+  <script type="text/javascript">
+  // Exit from app when its home page
+  document.addEventListener("backbutton", exittoapp, false);
+  function exittoapp() {
+
+    var sure = confirm("Are you Sure To Exit ?");
+    if (sure) {
+      navigator.app.exitApp();
+    } else {
+      return;
+    }
+  }
+
+
+  // Added some property to Footer just for Home page
+  $('.footer-welcome').css('position', 'absolute');
+  $('.footer-welcome').css('margin-top','0px');
+  $('.footer-welcome').css('margin-bottom','0px');
+
+
+
+
+
+  // Wait for device API libraries to load
+  //
+  document.addEventListener("deviceready", getLocationFromGPS, false);
+
+  // device APIs are available
+  //
+
+  function getLocationFromGPS() {
+    navigator.geolocation.getCurrentPosition(onSuccess, onError);
+    // var element = document.getElementById('geolocation');
+    // element.innerHTML = 'hello babe i have NO error';
+    // $('#geolocation').html('hello babe');
+  }
+
+
+  // onSuccess Geolocation
+  //
+  function onSuccess(position) {
+    var element = document.getElementById('geolocation');
+    element.innerHTML = 'hello babe i have NO error';
+
+    // '35.6998985,51.3419222'
+    var where = position.coords.latitude+','+position.coords.longitude;
+    localStorage.setItem('location',where);
+
+    // element.innerHTML = 'Latitude: '           + position.coords.latitude              + '<br />' +
+    // 'Longitude: '          + position.coords.longitude             + '<br />' +
+    // 'Altitude: '           + position.coords.altitude              + '<br />' +
+    // 'Accuracy: '           + position.coords.accuracy              + '<br />' +
+    // 'Altitude Accuracy: '  + position.coords.altitudeAccuracy      + '<br />' +
+    // 'Heading: '            + position.coords.heading               + '<br />' +
+    // 'Speed: '              + position.coords.speed                 + '<br />' +
+    // 'Timestamp: '          + position.timestamp                    + '<br />';
+  }
+
+  // onError Callback receives a PositionError object
+  //
+  function onError(error) {
+    // var element = document.getElementById('geolocation');
+    // element.innerHTML = 'code:     '+ error.code  +   'message: ' + error.message;
+  }
+
+  </script>
+
+</body>
+</html>
