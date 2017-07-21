@@ -41,7 +41,7 @@
     <icon src="package-assets/android/icon-hdpi.png" density="hdpi" width="72" height="72" />
     <icon src="package-assets/android/icon-xhdpi.png" density="xhdpi" width="96" height="96" />
 -->
-<icon src="package-assets/android/ldpa-icon-9696.PNG" density="xhdpi" width="96" height="96" />
+<icon src="ldpa-icon.PNG" density="xhdpi" width="96" height="96" />
 <splash src="package-assets/android/splash-720x960.9.png" density="xhdpi" orientation="portrait" />
 <!-- <icon src="package-assets/android/icon-xxhdpi.png" density="xxhdpi" width="144" height="144" />
 <icon src="package-assets/android/icon-xxxhdpi.png" density="xxxhdpi" width="192" height="192" />
