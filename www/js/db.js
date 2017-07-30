@@ -155,7 +155,7 @@ DB.list_schedule = function(){
 
   ar.sort(function(a,b){
     // return new Date(a.start).getTime() - new Date(b.start).getTime()
-    return a.OrderDateTime - b.OrderDateTime; 
+    return a.OrderDateTime - b.OrderDateTime;
   });
 
   // for(var b = 0; b < count; b++ ){
@@ -200,6 +200,7 @@ DB.list_schedule = function(){
       '<div class="vesselname-schedule"><i class="fa fa-ship"></i> '+jobschedule_local[i].VesselName +'</div>'+
       '<div class="type-schedule"><i class="fa fa-check"></i> JobType:  '+jobschedule_local[i].jobtypename + '</div>'+
       '<div class="OrderDateTime-schedule"><i class="fa fa-calendar"></i> ' + jobschedule_local[i].OrderDateTime + '</div>'+
+      '<div class="report-btn">'+'<button class="report-go-page"  id="report-'+jobschedule_local[i].JobscheduleID+'"> Report </button>'+'</div>'+
       '</li></a>');
     }
 

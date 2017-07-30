@@ -105,6 +105,19 @@
     localStorage.setItem('updated-schdeule-list',0);
   }
 
+
+  // Set JobscheduleID ready for make a report and go to report page
+  $('.report-go-page').click(function(e){
+    e.stopPropagation();
+    var which_report = $(this).attr('id');
+    var which_report_slice = which_report.slice(7);
+    console.log(which_report_slice);
+    localStorage.setItem('report_on_running',which_report_slice);
+    setTimeout(function(){
+      window.location.replace('report.html');
+    },200);
+  });
+
   </script>
 
 

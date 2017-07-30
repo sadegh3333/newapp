@@ -11,7 +11,7 @@ document.addEventListener('app.Ready',LDPA.core , false);
 LDPA.core = function(){
 
   // Set Version
-  LDPA.version = '1.7.50';
+  LDPA.version = '1.9.10';
   // Set Channel Release
   LDPA.ChannelVersion = 'Pilot';
 

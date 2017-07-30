@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title> Doing </title>
+  <meta http-equiv="Content-type" content="text/html; charset=utf-8">
+
+  <!-- see http://webdesign.tutsplus.com/tutorials/htmlcss-tutorials/quick-tip-dont-forget-the-viewport-meta-tag -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
+  <link rel="stylesheet" href="css/font-awesome.min.css">
+  <link rel="stylesheet" href="css/main.css">
+
+  <script src="cordova.js"></script>
+  <!-- phantom library, needed for Cordova api calls, added during build -->
+  <script src="js/app.js"></script>
+  <!-- recommended location of your JavaScript code relative to other JS files -->
+  <script src="xdk/init-dev.js"></script>
+  <!-- normalizes device and document ready events, see README for details -->
+
+  <!-- Load All js file  -->
+  <script type="text/javascript" src="js/jquery-3.1.1.min.js"></script>
+  <script type="text/javascript" src="js/core.js"></script>
+  <script type="text/javascript" src="js/db.js"></script>
+
+</head>
+
+<body onload="LDPA.core()" class="do">
+
+  <header>
+    <a href="#" class="back-button"><i class="fa fa-angle-left" aria-hidden="true"></i> Back</a>
+    <div class="title-page">
+      Report
+    </div>
+    <a href="index.html" class="home-button"><i class="fa fa-home" aria-hidden="true"></i> Home</a>
+  </header>
+
+
+  <job-schedule>
+    <info-vessel>
+      <div id="geolocation" style="display:none;"></div>
+      <div class="here_location" style="display:none;"></div>
+
+
+      <div>
+        <i class="fa fa-key" aria-hidden="true"></i> JS_ID: <span class="JobscheduleID">JobscheduleID Goes Here</span>
+      </div>
+      <div>
+        <i class="fa fa-key" aria-hidden="true"></i> JO_ID: <span class="JobOrderID">JoborderID Goes Here</span>
+      </div>
+      <div>
+        <i class="fa fa-ship" aria-hidden="true"></i> <span class="VesselName">VesselName Goes Here</span>
+      </div>
+      <div style="text-align: right;">
+        <i class="fa fa-check" aria-hidden="true"></i> JobType: <span class="JobType">JobType Goes Here</span>
+      </div>
+
+
+    </info-vessel>
+    <div class="job-schedule-list report">
+      <div class="todo_list">
+        <span> Work </span>
+        <span> Status </span>
+      </div>
+      <!-- All JobSchedule Goes here... -->
+    </div>
+  </job-schedule>
+
+
+  <div class="footer-welcome" style="position:relative;margin-top: 50px;">
+    Version.<span class="version"></span>.<span class="ChannelVersion"></span> <i class="fa fa-copyright" aria-hidden="true"></i>  Copyright 2017
+  </div>
+
+
+
+
+  <script type="text/javascript">
+  // $('.showme').html(localStorage.getItem('report_on_running'));
+  console.log(localStorage.getItem('report_on_running'));
+
+  console.log(JSON.parse(localStorage.getItem('jsdo_'+localStorage.getItem('report_on_running')+'')));
+
+
+
+
+
+
+
+
+
+  /**
+  *   Show list Dp_list for job-schedule-do page
+  *
+  *
+  *   @since 0.10.33
+  **/
+
+
+  // Get id from which jobschedule is Running
+  report_on_running = localStorage.getItem('report_on_running');
+  js_rep = JSON.parse(localStorage.getItem('jsdo_'+report_on_running));
+
+  // console.log(jsdo_doing);
+  var count = Object.keys(js_rep).length - 1 ;
+
+
+  // Variable for fill in rows
+  var done_status_check;
+  var job_done_class;
+
+  // Found VesselName From list schedule in localStorage and show in VesselName part
+  var job_schedule_local = JSON.parse(localStorage.getItem('jobschedule_local'));
+  var count_all_schedule = Object.keys(job_schedule_local).length - 1 ;
+  for(var a = 0; a < count_all_schedule; a++){
+    if(job_schedule_local[a].JobscheduleID == report_on_running){
+      $('.VesselName').html(job_schedule_local[a].VesselName);
+      $('.JobscheduleID').html(job_schedule_local[a].JobscheduleID);
+      $('.JobOrderID').html(job_schedule_local[a].JoborderID);
+      $('.JobType').html(job_schedule_local[a].jobtypename);
+
+      break;
+    }
+  }
+
+
+  var jobactivityid_list = [];
+
+  // Loop for show list
+  for (var i = count -1; i >= 0; i--) {
+
+    jobactivityid_list.push(js_rep[i].JobactivityID);
+    // Check the Job is done or ney for show datetime
+
+    done_status_check =  '<div class="done_status" id="jobActivityID_'+js_rep[i].JobactivityID+'">'+js_rep[i].EndDateTime+' </div>';
+    job_done_class = 'job_done';
+
+    $('.todo_list').after(
+      '<div class="'+job_done_class+' item_todo ActivityID_'+js_rep[i].ActivityID+'" id="task_'+js_rep[i].JobactivityID+'"  Timelimitstoppedbysteps="'+js_rep[i].Timelimitstoppedbysteps+'" TimeLimit="'+js_rep[i].TimeLimit+'" ActivityID="'+js_rep[i].ActivityID+'" HasAdditionalInput="'+js_rep[i].HasAdditionalInput+'">' +
+      '<span>'+
+      '<div class="id-schedule"><div><i class="fa fa-key" aria-hidden="true"></i>' +js_rep[i].JobactivityID +'</div><div><strong>'+
+      js_rep[i].ActivityName +'</strong></div></div>'+
+      '</span><span>'+
+      '<div class="hasadditional"></div>'+
+      done_status_check +
+      '</span>'+
+      '<div class="additional" id="additional_'+js_rep[i].JobactivityID+'">'+js_rep[i].Value+'</div></div>'
+    );
+
+    $('#additional_'+js_rep[i].JobactivityID+'').html(js_rep[i].Value);
+
+
+    // Check the Job is done or ney for show edit-btn
+    // if(js_rep[i].EndDateTime == null){
+    //   $('.edit-btn-'+js_rep[i].JobactivityID+'').hide();
+    // }else {
+    //   $('.edit-btn-'+js_rep[i].JobactivityID+'').show();
+    // }
+
+
+
+
+  } // End Loop
+
+  // // console.log(jobactivityid_list);
+  // countjl =  jobactivityid_list.length;
+  //
+  // // Overwrite do job for which one job_done
+  // var get_job_done = JSON.parse(localStorage.getItem('jsdo_done'));
+  // var count_job_done = get_job_done.items.length - 1 ;
+  //
+  // for (var o = count_job_done; o > 0; o--) {
+  //   // console.log(get_job_done.items[o].jobActivity);
+  //   for (var c = 0; c < countjl; c++) {
+  //     if(jobactivityid_list[c] == get_job_done.items[o].jobActivity){
+  //       // console.log('yeah its equal '+ jobactivityid_list[c]);
+  //       // here we are , Overwrite task item
+  //       $('#task_'+get_job_done.items[o].jobActivity+'').addClass('job_done');
+  //       $('.edit-btn-'+get_job_done.items[o].jobActivity+'').show();
+  //       $('#jobActivityID_'+get_job_done.items[o].jobActivity+'').html(get_job_done.items[o].datetime);
+  //       $('#additional_'+get_job_done.items[o].jobActivity+'').html(get_job_done.items[o].HasAdditionalInput);
+  //     }
+  //   }
+  // }
+  // console.log(get_job_done);
+  // console.log(count_job_done);
+
+
+
+
+
+
+
+
+  </script>
+
+</body>
+
+</html>

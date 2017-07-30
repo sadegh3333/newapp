@@ -5,7 +5,7 @@
       "projectTypeName": "com.intel.xdk.projecttype.jsapp",
       "src": "jsapp/template-blank-cordova-project-lite/sample.zip",
       "projectGuid": "28ba75f0-5668-4d77-b84c-8fc0ec25beb3",
-      "lastModifiedDate": 1500640085728,
+      "lastModifiedDate": 1501448586620,
       "creationDate": 1489020415148
     },
     "XDK-app-designer": "false",
@@ -208,7 +208,7 @@
         "excludedLibraries_": "",
         "cordovaCLIVersion_": "6.2.0",
         "crosswalkVersion_": "19",
-        "appVersion_": "1.7.50",
+        "appVersion_": "1.9.10",
         "appDescription_": "Created With Love, By MiSaCo.",
         "appAuthor_": "MiSaCo.",
         "appVersionCode_": "1",

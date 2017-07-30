@@ -361,10 +361,29 @@ job-schedule {}
         }
         job-schedule .job-schedule-list ul li .OrderDateTime-schedule {
           display: inline-block;
-          width: 100%;
+          width: 70%;
           text-align: left;
           border-top: 1px rgba(255, 255, 255, 0.27) solid;
+          padding: 13px 0px;
         }
+        .report-btn {
+          display: inline-block !important;
+          width: 27% !important;
+          text-align: left !important;
+          border-top: 1px rgba(255, 255, 255, 0.27) solid !important;
+          padding: 8px 3px !important;
+        }
+        .report-btn > button {
+          border: 1px #9C27B0 solid;
+          padding: 8px 20px;
+          background-color: #9C27B0;
+          color: white;
+          font-weight: bold;
+          font-size: 13px;
+          box-shadow: 0px 0px 3px #9C27B0;
+          border-radius: 5px;
+        }
+
         job-schedule .job-schedule-list ul li .type-schedule {
           display: inline-block;
           width: 50%;
@@ -543,6 +562,54 @@ job-schedule {}
 
 
 
+
+
+
+        .report .todo_list {
+          width: 100%;
+          padding: 20px 0px;
+          border: 1px #ddd solid;
+          font-size: 16px;
+          font-weight: bold;
+        }
+        .report .todo_list span:nth-child(1) {
+          display: inline-block;
+          width: 49.0%;
+          padding-left: 0px;
+          height: 100%;
+          text-align: center;
+          border-right: 1px rgba(0, 0, 0, 0.11) solid;
+        }
+        .report .todo_list span:nth-child(2) {
+          display: inline-block;
+          width: 49.5%;
+          padding: 0;
+          height: 100%;
+          text-align: center;
+        }
+
+        .report .item_todo {
+          width: 100%;
+          border: 1px rgba(221, 221, 221, 0.5) solid;
+          position: relative;
+          background-color: rgba(96, 125, 139, 0.08);
+          box-shadow: 0px 0px 0px;
+        }
+        .report .item_todo span:nth-child(1) {
+          width: 60%;
+          display: inline-block;
+          padding: 10px 0px 0px 10px;
+          font-size: 16px;
+        }
+        .report .item_todo span:nth-child(2) {
+          width: 35%;
+          display: inline-block;
+          padding: 10px 5px 0px 0px;
+          font-size: 16px;
+          text-align: center;
+          vertical-align: top;
+          line-height: 1.5;
+        }
 
 
 
